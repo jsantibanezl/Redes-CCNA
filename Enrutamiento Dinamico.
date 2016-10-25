@@ -17,6 +17,8 @@ R1(config-router)#passive-interface f0/0
 R1(config-router)#redistribute static (solo en router de borde que tenga una ruta por defecto)
 R1(config-router)#exit
 
+AUTENTICACION EIGRP
+
 R1(config)#key chain ccna
 R1(config-keychain)#key 1
 R1(config-keychain-key)#key-string cisco123
@@ -37,3 +39,12 @@ R1(config-router)#network 10.0.0.0 0.0.0.255 area 0
 R1(config-router)#passive-interface f0/0
 R1(config-router)#default-information originate (solo en router de borde que tenga una ruta por defecto)
 R1(config-router)#exit
+
+AUTENTICACION OSPF
+
+R1(config-router)#area 0 authentication message-digest
+
+R1(config)#interface serial 0/0/0
+R1(config-if)#ip ospf message-digest-key 1 md5 cisco
+R1(config-if)#ip ospf authentication message-digest
+R1(config-if)#exit
