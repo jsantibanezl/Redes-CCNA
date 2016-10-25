@@ -14,3 +14,10 @@ R1(config-if)#description "conectado a ..."
 R1(config-if)#bandwidth 2000
 R1(config-if)#no shutdown
 R1(config-if)exit
+
+CONFIGURACION DE INTERFACES LOOPBACK.
+
+R1(config)#interface loopback0
+R1(config-if)#ip address 192.168.20.1 255.255.255.255
+R1(config-if)#description "conectado a ..."
+R1(config-if)exit
