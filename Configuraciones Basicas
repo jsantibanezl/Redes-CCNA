@@ -22,3 +22,4 @@ R1(config-line)#login
 R1(config-line)#logging synchronous
 R1(config-line)#exec-timeout 20
 
+ESTOS PARAMETROS SON COMUNES PARA ROUTER Y SWITCH.
