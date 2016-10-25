@@ -1,0 +1,45 @@
+CREACION DE VLAN.
+
+Switch(config)#vlan 10
+Switch(config-vlan)#name VENTAS
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#name SOPORTE
+Switch(config-vlan)#exit
+
+CONFIGURAR IP EN INTERFAZ DE VLAN.
+
+Switch(config)#interface vlan 20
+Switch(config-if)#ip address 192.168.10.2 255.255.255.0
+Switch(config-if)#no shutdown 
+Switch(config-if)#exit
+Switch(config)#ip default-gateway 192.168.10.1
+
+ASIGNAR PUERTOS A VLAN.
+
+Switch(config)#interface f0/2
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+ASIGNAR PUERTOS TRONCALES.
+
+Switch(config)#interface f0/1
+Switch(config-if)#switchport mode trunk 
+Switch(config-if)#exit
+
+VTP SERVER.
+
+Switch(config)#vtp mode server 
+Switch(config)#vtp domain cisco
+Switch(config)#vtp password 123
+
+
+CONFIGURAR SEGURIDAD DE PUERTO.
+
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode access 
+Switch(config-if)#switchport port-security 
+Switch(config-if)#switchport port-security mac-address sticky 
+Switch(config-if)#switchport port-security maximum 1
+Switch(config-if)#switchport port-security violation shutdown 
+Switch(config-if)#exit
