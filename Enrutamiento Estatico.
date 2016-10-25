@@ -1,0 +1,16 @@
+RUTAS ESTATICAS.
+
+R1(config)#ip route 10.0.0.0 255.0.0.0 s0/0/0 (interfaz de salida)
+
+R1(config)#ip route 10.0.0.0 255.0.0.0 192.168.2.1 (ip del siguiente salto)
+
+
+RUTAS POR DEFECTO
+
+R1(config)#ip route 0.0.0.0 0.0.0.0 s0/0/0
+
+RUTAS POR DEFECTO FLOTANTE
+
+R1(config)#ip route 0.0.0.0 0.0.0.0 s0/0/0 2 (distancia administrativa)
+
+EL ENRUTAMIENTO ESTATICO DEBE SER DE IDA Y DE VUELTA.
