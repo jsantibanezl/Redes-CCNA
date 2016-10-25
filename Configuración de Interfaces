@@ -1,0 +1,16 @@
+CONFIGURACION DE INTERFACES FASTETHERNET.
+
+R1(config)#interface fastEthernet 0/0
+R1(config-if)#ip address 192.168.10.1 255.255.255.0
+R1(config-if)#description "conectado a ..."
+R1(config-if)#no shutdown
+R1(config-if)exit
+
+CONFIGURACION DE INTERFACES SERIALES.
+
+R1(config)#interface serial 0/0/0
+R1(config-if)#ip address 192.168.20.1 255.255.255.252
+R1(config-if)#description "conectado a ..."
+R1(config-if)#bandwidth 2000
+R1(config-if)#no shutdown
+R1(config-if)exit
