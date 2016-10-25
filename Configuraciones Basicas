@@ -1,0 +1,24 @@
+PARAMETROS BASICOS
+
+Router(config)#hostname R1
+R1(config)#banner motd #ACCESO RESTRINGIDO#
+R1(config)#enable secret (password)
+R1(config)#no ip domain-lookup
+R1(config)#service password-encryption
+
+LINEAS VTY
+
+R1(config)#line vty 0 4
+R1(config-line)#password (password)
+R1(config-line)#login
+R1(config-line)#logging synchronous
+R1(config-line)#exec-timeout 20
+
+LINEA DE CONSOLA
+
+R1(config)#line console 0
+R1(config-line)#password (password)
+R1(config-line)#login
+R1(config-line)#logging synchronous
+R1(config-line)#exec-timeout 20
+
