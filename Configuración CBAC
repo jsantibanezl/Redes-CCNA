@@ -12,8 +12,8 @@ BORDE(config-if)# ip access-group OUTSIDE in
 CONFIGURAR REGLAS DE INSPECCION.
 
 ip inspect name CBAC icmp
-BORDE(config)# ip inspect name CBAC telnet
-BORDE(config)# ip inspect name CBAC http
+BORDE(config)# ip inspect name CBAC tcp
+BORDE(config)# ip inspect name CBAC udp
 BORDE(config)# ip inspect name CBAC icmp
 
 CONFIGURAR EL MONITOREO Y SYSLOG DE LOS EVENTOS 
