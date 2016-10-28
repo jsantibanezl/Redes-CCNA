@@ -1,0 +1,31 @@
+CREAR ACL NOMBRADA QUE DENIEGA EL TRAFICO OUTSIDE-INSIDE.
+
+ip access-list extended OUTSIDE
+BORDE(config-ext-nacl)# deny ip any any
+BORDE(config-ext-nacl)# exit
+
+ASOCIAR ACL A INTERFAZ CONECTADA A INTERNET
+
+interface s0/0/1
+BORDE(config-if)# ip access-group OUTSIDE in
+
+CONFIGURAR REGLAS DE INSPECCION.
+
+ip inspect name IN-OUT-IN icmp
+BORDE(config)# ip inspect name CBAC telnet
+BORDE(config)# ip inspect name CBAC http
+BORDE(config)# ip inspect name CBAC icmp
+
+CONFIGURAR EL MONITOREO Y SYSLOG DE LOS EVENTOS 
+
+ip inspect audit-trail
+BORDE(config)# service timestamps debug datetime msec
+BORDE(config)# logging host 192.168.1.3
+
+APLICAR LA INSPECCION DE SALIDA EN LA INTERFAZ CONECTADA A INTERNET
+
+R3(config-if)# ip inspect CBAC out
+
+SHOW DE LA INSPECCION
+
+BORDE# show ip inspect sessions
