@@ -20,7 +20,7 @@ CONFIGURAR EL MONITOREO Y SYSLOG DE LOS EVENTOS
 
 ip inspect audit-trail
 BORDE(config)# service timestamps debug datetime msec
-BORDE(config)# logging host 192.168.1.3
+BORDE(config)# logging host (ip syslog)
 
 APLICAR LA INSPECCION DE SALIDA EN LA INTERFAZ CONECTADA A INTERNET
 
