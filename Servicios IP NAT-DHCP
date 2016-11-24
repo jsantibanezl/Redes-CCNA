@@ -1,0 +1,36 @@
+#ESTABLECER INTERFACES INSIDE Y OUTSIDE#
+
+BORDE(config)#interface fastEthernet 0/0
+BORDE(config-if)#ip nat outside 
+BORDE(config-if)#interface fastEthernet 0/1
+BORDE(config-if)#ip nat inside 
+BORDE(config-if)#exit
+
+#CONFIGURACIÓN DE NAT#
+
+BORDE(config)#access-list 10 permit 192.168.0.0 0.0.0.255
+BORDE(config)#ip nat pool PUBLICAS 200.200.200.2 200.200.200.6 netmask 255.255.255.248
+BORDE(config)#ip nat inside source list 10 pool PUBLICAS 
+
+#CONFIGURACIÓN DE PAT#
+
+BORDE(config)#access-list 10 permit 192.168.0.0 0.0.0.255
+BORDE(config)#ip nat inside source list 10 interface fastEthernet 0/0 overload
+
+#CONFIGURACIÓN DE NAT ESTATICO#
+
+BORDE(config)#ip nat inside source static 192.168.0.100 200.200.200.2
+
+#CONFIGURACIÓN DE REENVIO DE PUERTOS#
+
+BORDE(config)#ip nat inside source static tcp 192.168.0.100 80 200.200.200.2 8080
+
+
+#CONFIGURACIÓN DE DHCP#
+
+BORDE(config)#ip dhcp excluded-address 192.168.0.1 192.168.0.10
+BORDE(config)#ip dhcp pool LAN
+BORDE(dhcp-config)#network 192.168.0.0 255.255.255.0
+BORDE(dhcp-config)#default-router 192.168.0.1
+BORDE(dhcp-config)#dns-server 200.200.200.200
+BORDE(dhcp-config)#exit
