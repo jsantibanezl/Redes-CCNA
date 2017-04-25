@@ -1,4 +1,5 @@
 HABILITAR SSH EN UN SWITCH O ROUTER
+
 S1(config)#username admin secret 1234
 S1(config)#ip domain-name cisco.com
 S1(config)#crypto key generate rsa (1024)
