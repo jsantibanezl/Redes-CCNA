@@ -1,12 +1,19 @@
 CONFIGURAR RPVST+
+
 S1(config)#spanning-tree mode rapid-pvst
 
+
 ESTABLECER UN SWITCH RAIZ PRIMARIO A UNA VLAN
+
 S1(config)#spanning-tree vlan XX root primary 
 
+
 ESTABLECER UN SWITCH RAIZ SECUNDARIO A UNA VLAN
+
 S1(config)#spanning-tree vlan XX root secondary
 
+
 HABILITAR PORTFAST EN UN PUERTO DE ACCESO
+
 S1(config-if)#spanning-tree portfast 
 
