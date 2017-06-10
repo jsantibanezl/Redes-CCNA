@@ -1,0 +1,6 @@
+CONFIGURAR ENLACE ETHERCHANEL ENTRE SWITCH
+
+Switch(config)#interface range f0/1-2
+Switch(config-if)#channel-group 1 mode active
+Switch(config-if)#interface port-channel 1
+Switch(config-if)#switchport mode trunk
