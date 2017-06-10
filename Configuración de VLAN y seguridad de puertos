@@ -9,16 +9,16 @@ Switch(config-vlan)#exit
 CONFIGURAR IP EN INTERFAZ DE VLAN.
 
 Switch(config)#interface vlan 20
-Switch(config-if)#ip address 192.168.10.2 255.255.255.0
+Switch(config-if)#ip address 192.168.20.2 255.255.255.0
 Switch(config-if)#no shutdown 
 Switch(config-if)#exit
-Switch(config)#ip default-gateway 192.168.10.1
+Switch(config)#ip default-gateway 192.168.20.1
 
 ASIGNAR PUERTOS A VLAN.
 
 Switch(config)#interface f0/2
 Switch(config-if)#switchport mode access 
-Switch(config-if)#switchport access vlan 10
+Switch(config-if)#switchport access vlan 20
 Switch(config-if)#exit
 
 ASIGNAR PUERTOS TRONCALES.
@@ -43,3 +43,11 @@ Switch(config-if)#switchport port-security mac-address sticky
 Switch(config-if)#switchport port-security maximum 1
 Switch(config-if)#switchport port-security violation shutdown 
 Switch(config-if)#exit
+
+CONFIGURAR IP EN SUB-INTERFAZ DE ROUTER
+
+Switch(config)#interface f0/0
+Switch(config-if)# no shutdown
+Switch(config)#interface f0/0.20
+Switch(config-if)#encapsulation dot1q 20
+Switch(config-if)#ip address 192.168.20.1 255.255.255.0
