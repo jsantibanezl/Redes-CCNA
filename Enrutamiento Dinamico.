@@ -11,6 +11,7 @@ R1(config-router)#exit
 EIGRP
 
 R1(config)#router eigrp 1
+R1(config-router)#eigrp router-id 1.1.1.1
 R1(config-router)#network 10.0.0.0
 R1(config-router)#no auto-summary 
 R1(config-router)#passive-interface f0/0
