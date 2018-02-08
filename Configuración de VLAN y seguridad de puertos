@@ -46,8 +46,8 @@ Switch(config-if)#exit
 
 CONFIGURAR IP EN SUB-INTERFAZ DE ROUTER
 
-Switch(config)#interface f0/0
-Switch(config-if)# no shutdown
-Switch(config)#interface f0/0.20
-Switch(config-if)#encapsulation dot1q 20
-Switch(config-if)#ip address 192.168.20.1 255.255.255.0
+Router(config)#interface f0/0
+Router(config-if)# no shutdown
+Router(config)#interface f0/0.20
+Router(config-if)#encapsulation dot1q 20
+Router(config-if)#ip address 192.168.20.1 255.255.255.0
