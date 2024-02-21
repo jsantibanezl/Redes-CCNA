@@ -1,0 +1,17 @@
+in g0/0
+ipv6 add 2001:cafe:acad:1::1/64
+ipv6 add fe80::1 link-local
+no sh
+exit
+
+ipv6 unicast-routing
+
+ipv6 dhcp pool DHCP_IPV6
+address prefix 2001:cafe:acad:1::/64
+dns-server 2001:ACAD::8888
+exit
+
+in g0/0
+ipv6 nd other-config-flag 
+ipv6 dhcp server DHCP_IPV6
+exit
