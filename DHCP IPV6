@@ -1,5 +1,5 @@
 in g0/0
-ipv6 add 2001:cafe:acad:1::1/64
+ipv6 add 2001:CAFE:ACAD:1::1/64
 ipv6 add fe80::1 link-local
 no sh
 exit
@@ -7,7 +7,7 @@ exit
 ipv6 unicast-routing
 
 ipv6 dhcp pool DHCP_IPV6
-address prefix 2001:cafe:acad:1::/64
+address prefix 2001:CAFE:ACAD:1::/64
 dns-server 2001:ACAD::8888
 exit
 
